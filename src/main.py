@@ -10,7 +10,7 @@ import raid_dynamax as raid
 from Config import Config
 
 app = Client(
-    api_id=Config.api_id,
+    api_id=int(Config.api_id),
     api_hash=Config.api_hash,
     bot_token=Config.bot_token,
     session_name='inhunmanDexBot'
