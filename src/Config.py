@@ -5,7 +5,7 @@ class Config:
     api_hash = os.environ.get("API_HASH", None)
     bot_token = os.environ.get("BOT_TOKEN", None)
     try:
-        sudo = set(int(x) for x in os.environ.get("SUDO", "").split())
+        sudo = set(int(x) for x in os.environ.get("SUDO", "").split(','))
     except ValueError:
         raise Exception("Your sudo users list does not contain valid integers.")
     

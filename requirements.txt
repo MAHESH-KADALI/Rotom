@@ -1,2 +1,3 @@
 Pyrogram==0.17.1
+tgcrypto
 beautifulsoup4==4.9.1
