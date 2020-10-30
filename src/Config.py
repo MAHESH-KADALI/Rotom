@@ -1,8 +1,8 @@
 import os
 
 class Config:
-    api_id = int(os.environ.get("API_ID", None))
-    api_hash = os.environ.get("API_HASH", None)
+    aid = int(os.environ.get("API_ID", None))
+    ahash = os.environ.get("API_HASH", None)
     bot_token = os.environ.get("BOT_TOKEN", None)
     sudo = [239508098, 1313665327]
     # try:

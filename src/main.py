@@ -10,8 +10,8 @@ import raid_dynamax as raid
 from Config import Config
 
 app = Client(
-    api_id=int(Config.api_id),
-    api_hash=Config.api_hash,
+    api_id=Config.aid,
+    api_hash=Config.ahash,
     bot_token=Config.bot_token,
     session_name='inhunmanDexBot'
 )
@@ -57,7 +57,7 @@ def get_bot_data(app, message):
     message.continue_propagation()
 
 
-@app.on_message(Filters.command(['stats', 'stats@RotomgramBot']))
+@app.on_message(Filters.command(['stats', 'stats@inhumanDexBot']))
 def get_stats(app, message):
     if message.from_user.id in Config.sudo:
         members = 0
@@ -75,7 +75,7 @@ def get_stats(app, message):
 
 
 # ===== Home =====
-@app.on_message(Filters.command(['start', 'start@RotomgramBot']))
+@app.on_message(Filters.command(['start', 'start@inhumanDexBot']))
 def start(app, message):
     app.send_message(
         chat_id=message.chat.id,
@@ -86,10 +86,10 @@ def start(app, message):
 
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
-@app.on_message(Filters.command(['data', 'data@RotomgramBot']))
+@app.on_message(Filters.command(['data', 'data@inhumanDexBot']))
 def pkmn_search(app, message):
     try:
-        if message.text == '/data' or message.text == '/data@RotomgramBot':
+        if message.text == '/data' or message.text == '/data@inhumanDexBot':
             app.send_message(message.chat.id, texts['error1'], parse_mode='HTML')
             return None
         pkmn = func.find_name(message.text)
@@ -245,7 +245,7 @@ def locations(app, call):
 
 # ===== Usage command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'usage' in query.data))
-@app.on_message(Filters.command(['usage', 'usage@RotomgramBot']))
+@app.on_message(Filters.command(['usage', 'usage@inhumanDexBot']))
 def usage(app, message):
     try:
         page = int(re.split('/', message.data)[1])
@@ -273,7 +273,7 @@ def usage(app, message):
 
 
 # ===== FAQ command =====
-@app.on_message(Filters.command(['faq', 'faq@RotomgramBot']))
+@app.on_message(Filters.command(['faq', 'faq@inhumanDexBot']))
 def faq(app, message):
     text = texts['faq']
     app.send_message(
@@ -286,7 +286,7 @@ def faq(app, message):
 
 
 # ===== About command =====
-@app.on_message(Filters.command(['about', 'about@RotomgramBot']))
+@app.on_message(Filters.command(['about', 'about@inhumanDexBot']))
 def about(app, message):
     text = texts['about']
     markup = InlineKeyboardMarkup([[
@@ -305,15 +305,15 @@ def about(app, message):
 
 
 # ===== Raid commands =====
-@app.on_message(Filters.command(['addcode', 'addcode@RotomgramBot']))
+@app.on_message(Filters.command(['addcode', 'addcode@inhumanDexBot']))
 def call_add_fc(app, message):
     raid.add_fc(app, message, texts)
 
-@app.on_message(Filters.command(['mycode', 'mycode@RotomgramBot']))
+@app.on_message(Filters.command(['mycode', 'mycode@inhumanDexBot']))
 def call_show_my_fc(app, message):
     raid.show_my_fc(app, message, texts)
 
-@app.on_message(Filters.command(['newraid', 'newraid@RotomgramBot']))
+@app.on_message(Filters.command(['newraid', 'newraid@inhumanDexBot']))
 def call_new_raid(app, message):
     raid.new_raid(app, message, texts)
 
