@@ -85,7 +85,7 @@ def new_raid(app, message, texts):
         app.send_message(cid, text, parse_mode='HTML')
         return True
 
-    raid.pokemon = re.sub('\/newraid(@RotomgramBot)*\s', '', message.text)
+    raid.pokemon = re.sub('\/newraid(@inhumanDexBot)*\s', '', message.text)
     if uid in data:
         raid.fc = data[uid]['fc']
     else:

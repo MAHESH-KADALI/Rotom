@@ -7,9 +7,13 @@ from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
 import functions as func
 import raid_dynamax as raid
 
+from Config import Config
 
 app = Client(
-    session_name='Rotomgram'
+    api_id=Config.api_id,
+    api_hash=Config.api_hash,
+    bot_token=Config.bot_token,
+    session_name='inhunmanDexBot'
 )
 
 texts = json.load(open('src/texts.json', 'r'))
@@ -55,7 +59,7 @@ def get_bot_data(app, message):
 
 @app.on_message(Filters.command(['stats', 'stats@RotomgramBot']))
 def get_stats(app, message):
-    if message.from_user.id == 312012637:
+    if message.from_user.id in Config.sudo:
         members = 0
         for group in stats['groups']:
             members += stats['groups'][group]['members']

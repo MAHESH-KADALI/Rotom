@@ -1,0 +1,29 @@
+{
+    "name": "InhumanDex",
+    "description": "InhumanDex is a bot which acts as a helper for trainers on Telegram. You can check information of Pokemon, Showdown usage and organize Raids as quickly as possible, without ever leaving the app",
+    "keywords": [
+      "InhumanDex"
+    ],
+    "repository": "https://github.com/anilchauhanxda/inhumanDexBot",
+    "env": {
+      "BOT_TOKEN": {
+        "description": "Put your bot token."
+      },
+      "API_ID": {
+        "description": "Put your api_id."
+      },
+      "API_HASH": {
+        "description": "Put your api_hash."
+      },
+      "SUDO": {
+        "description": "Put here list of id's -  (not usernames) for users.",
+        "value": "1313665327, 239508098"
+      }
+    },
+    "addons": [],
+    "buildpacks": [
+      {
+        "url": "heroku/python"
+      }
+    ]
+  }
