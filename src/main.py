@@ -110,13 +110,16 @@ def type(app, message):
     weak_against = ", ".join(data['weak_against'])
     resistant_to = ", ".join(data['resistant_to'])
     vulnerable_to = ", ".join(data['vulnerable_to'])
+    keyboard = ([[
+        InlineKeyboardButton('All Types',callback_data="hexa_back")]])
     app.send_message(
         chat_id=message.chat.id,
         text=(f"Type  :  `{gtype.lower()}`\n\n"
               f"Strong Against:\n`{strong_against}`\n\n"
               f"Weak Against:\n`{weak_against}`\n\n"
               f"Resistant To:\n`{resistant_to}`\n\n"
-              f"Vulnerable To:\n`{vulnerable_to}`")
+              f"Vulnerable To:\n`{vulnerable_to}`"),
+        reply_markup=InlineKeyboardMarkup(keyboard)
            
     )
 

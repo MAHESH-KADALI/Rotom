@@ -10,4 +10,4 @@ class Config:
     # except ValueError:
     #     raise Exception("Your sudo users list does not contain valid integers.")
     
-  
+    
