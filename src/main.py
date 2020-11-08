@@ -121,8 +121,7 @@ def type(app, message):
     )
 
 # ==== Typew List =====
-@app.on_message(Filters.command(['types', 'types@inhumanDexBot']))
-def types(app, message): 
+class ptype_buttons:
     keyboard = ([[
         InlineKeyboardButton('Normal',callback_data=f"type_normal"),
         InlineKeyboardButton('Fighting',callback_data=f"type_fighting"),
@@ -147,31 +146,49 @@ def types(app, message):
         InlineKeyboardButton('Dragon',callback_data=f"type_dragon"),
         InlineKeyboardButton('Fairy',callback_data=f"type_fairy"),
         InlineKeyboardButton('Dark',callback_data=f"type_dark")]])
-        
+    keyboard += ([[
+        InlineKeyboardButton('Delete',callback_data=f"hexa_delete")]])
+    
+@app.on_message(Filters.command(['types', 'types@inhumanDexBot']))
+def types(app, message): 
     app.send_message(
         chat_id=message.chat.id,
         text="List of types of Pokemons:",
-        reply_markup=InlineKeyboardMarkup(keyboard)
+        reply_markup=InlineKeyboardMarkup(ptype_buttons.keyboard)
     )
 
 # ===== Types Callback ====
 @app.on_callback_query()
 def button(client: app, callback_query: CallbackQuery):
     q_data = callback_query.data
+    query_data = q_data.split('_')[0]
     type_n = q_data.split('_')[1]
-    data = jtype[type_n]
-    strong_against = ", ".join(data['strong_against'])
-    weak_against = ", ".join(data['weak_against'])
-    resistant_to = ", ".join(data['resistant_to'])
-    vulnerable_to = ", ".join(data['vulnerable_to'])
-    callback_query.message.edit_text(
-        (f"Type  :  `{type_n}`\n\n"
-         f"Strong Against:\n`{strong_against}`\n\n"
-         f"Weak Against:\n`{weak_against}`\n\n"
-         f"Resistant To:\n`{resistant_to}`\n\n"
-         f"Vulnerable To:\n`{vulnerable_to}`")
-    )
-
+    if query_data == "type":
+        data = jtype[type_n]
+        strong_against = ", ".join(data['strong_against'])
+        weak_against = ", ".join(data['weak_against'])
+        resistant_to = ", ".join(data['resistant_to'])
+        vulnerable_to = ", ".join(data['vulnerable_to'])
+        keyboard = ([[
+        InlineKeyboardButton('Back',callback_data="hexa_back")]])
+        callback_query.message.edit_text(
+            text=(f"Type  :  `{type_n}`\n\n"
+            f"Strong Against:\n`{strong_against}`\n\n"
+            f"Weak Against:\n`{weak_against}`\n\n"
+            f"Resistant To:\n`{resistant_to}`\n\n"
+            f"Vulnerable To:\n`{vulnerable_to}`"),
+            reply_markup=InlineKeyboardMarkup(keyboard)
+        )
+    elif q_data == "hexa_back":
+        callback_query.message.edit_text(
+            "List of types of Pokemons:",
+            reply_markup=InlineKeyboardMarkup(ptype_buttons.keyboard)
+        )
+    elif q_data == "hexa_delete":
+        callback_query.message.delete()
+    else:
+        return
+    
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
 @app.on_message(Filters.command(['data', 'data@inhumanDexBot']))
