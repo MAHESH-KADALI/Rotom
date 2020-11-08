@@ -19,6 +19,7 @@ app = Client(
 texts = json.load(open('src/texts.json', 'r'))
 data = json.load(open('src/pkmn.json', 'r'))
 stats = json.load(open('src/stats.json', 'r'))
+jtype = json.load(open('src/type.json', 'r'))
 
 usage_dict = {'vgc': None}
 raid_dict = {}
@@ -83,6 +84,41 @@ def start(app, message):
         parse_mode='HTML'
     )
 
+# ==== Type Pokemon =====
+@app.on_message(Filters.command(['type', 'type@inhumanDexBot']))
+def type(app, message):
+    try:
+        gtype = message.text.split(' ')[1]
+    except IndexError as s:
+        app.send_message(
+            chat_id=message.chat.id,
+            text="`Syntex error: use eg '/type poison'`"
+        )
+        return
+    try:
+        data = jtype[gtype.lower()]
+    except KeyError as s:
+        app.send_message(
+            chat_id=message.chat.id,
+            text=("`This type doesn't exist good sir :/ `\n"
+                  "`Do  /types  to check for the existing types.`")
+        )
+        return
+    strong_against = ", ".join(data['strong_against'])
+    weak_against = ", ".join(data['weak_against'])
+    resistant_to = ", ".join(data['resistant_to'])
+    vulnerable_to = ", ".join(data['vulnerable_to'])
+    app.send_message(
+        chat_id=message.chat.id,
+        text=(f"Type  :  `{gtype.lower()}`\n\n"
+              f"Strong Against:\n`{strong_against}`\n\n"
+              f"Weak Against:\n`{weak_against}`\n\n"
+              f"Resistant To:\n`{resistant_to}`\n\n"
+              f"Vulnerable To:\n`{vulnerable_to}`")
+           
+    )
+
+    
 
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
