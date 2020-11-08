@@ -2,7 +2,9 @@ import json
 import re
 
 from pyrogram import Client, Filters
-from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import (InlineKeyboardMarkup,
+                      InlineKeyboardButton,
+                      CallbackQuery)
 
 import functions as func
 import raid_dynamax as raid
@@ -118,7 +120,57 @@ def type(app, message):
            
     )
 
-    
+# ==== Typew List =====
+@app.on_message(Filters.command(['types', 'types@inhumanDexBot']))
+def types(app, message): 
+    keyboard = ([[
+        InlineKeyboardButton('Normal',callback_data=f"type_normal"),
+        InlineKeyboardButton('Fighting',callback_data=f"type_fighting"),
+        InlineKeyboardButton('Flying',callback_data=f"type_flying")]])
+    keyboard += ([[
+        InlineKeyboardButton('Poison',callback_data=f"type_poison"),
+        InlineKeyboardButton('Ground',callback_data=f"type_ground"),
+        InlineKeyboardButton('Rock',callback_data=f"type_rock")]])
+    keyboard += ([[
+        InlineKeyboardButton('Bug',callback_data=f"type_bug"),
+        InlineKeyboardButton('Ghost',callback_data=f"type_ghost"),
+        InlineKeyboardButton('Steel',callback_data=f"type_steel")]])
+    keyboard += ([[
+        InlineKeyboardButton('Fire',callback_data=f"type_fire"),
+        InlineKeyboardButton('Water',callback_data=f"type_water"),
+        InlineKeyboardButton('Grass',callback_data=f"type_grass")]])
+    keyboard += ([[
+        InlineKeyboardButton('Electric',callback_data=f"type_electric"),
+        InlineKeyboardButton('Psychic',callback_data=f"type_psychic"),
+        InlineKeyboardButton('Ice',callback_data=f"type_ice")]])
+    keyboard += ([[
+        InlineKeyboardButton('Dragon',callback_data=f"type_dragon"),
+        InlineKeyboardButton('Fairy',callback_data=f"type_fairy"),
+        InlineKeyboardButton('Dark',callback_data=f"type_dark")]])
+        
+    app.send_message(
+        chat_id=message.chat.id,
+        text="List of types of Pokemons:",
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+# ===== Types Callback ====
+@app.on_callback_query()
+def button(client: app, callback_query: CallbackQuery):
+    q_data = callback_query.data
+    type_n = q_data.split('_')[1]
+    data = jtype[type_n]
+    strong_against = ", ".join(data['strong_against'])
+    weak_against = ", ".join(data['weak_against'])
+    resistant_to = ", ".join(data['resistant_to'])
+    vulnerable_to = ", ".join(data['vulnerable_to'])
+    callback_query.message.edit_text(
+        (f"Type  :  `{type_n}`\n\n"
+         f"Strong Against:\n`{strong_against}`\n\n"
+         f"Weak Against:\n`{weak_against}`\n\n"
+         f"Resistant To:\n`{resistant_to}`\n\n"
+         f"Vulnerable To:\n`{vulnerable_to}`")
+    )
 
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
