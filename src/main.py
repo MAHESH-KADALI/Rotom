@@ -111,7 +111,7 @@ def ptype(app, message):
     resistant_to = ", ".join(data['resistant_to'])
     vulnerable_to = ", ".join(data['vulnerable_to'])
     keyboard = ([[
-        InlineKeyboardButton('All Types',callback_data="hexa_back")]])
+        InlineKeyboardButton('All Types',callback_data=f"hexa_back_{message.from_user.id}")]])
     app.send_message(
         chat_id=message.chat.id,
         text=(f"Type  :  `{gtype.lower()}`\n\n"
@@ -124,80 +124,97 @@ def ptype(app, message):
     )
 
 # ==== Typew List =====
-class ptype_buttons:
+def ptype_buttons(user_id):
     keyboard = ([[
-        InlineKeyboardButton('Normal',callback_data=f"type_normal"),
-        InlineKeyboardButton('Fighting',callback_data=f"type_fighting"),
-        InlineKeyboardButton('Flying',callback_data=f"type_flying")]])
+        InlineKeyboardButton('Normal',callback_data=f"type_normal_{user_id}"),
+        InlineKeyboardButton('Fighting',callback_data=f"type_fighting_{user_id}"),
+        InlineKeyboardButton('Flying',callback_data=f"type_flying_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Poison',callback_data=f"type_poison"),
-        InlineKeyboardButton('Ground',callback_data=f"type_ground"),
-        InlineKeyboardButton('Rock',callback_data=f"type_rock")]])
+        InlineKeyboardButton('Poison',callback_data=f"type_poison_{user_id}"),
+        InlineKeyboardButton('Ground',callback_data=f"type_ground_{user_id}"),
+        InlineKeyboardButton('Rock',callback_data=f"type_rock_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Bug',callback_data=f"type_bug"),
-        InlineKeyboardButton('Ghost',callback_data=f"type_ghost"),
-        InlineKeyboardButton('Steel',callback_data=f"type_steel")]])
+        InlineKeyboardButton('Bug',callback_data=f"type_bug_{user_id}"),
+        InlineKeyboardButton('Ghost',callback_data=f"type_ghost_{user_id}"),
+        InlineKeyboardButton('Steel',callback_data=f"type_steel_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Fire',callback_data=f"type_fire"),
-        InlineKeyboardButton('Water',callback_data=f"type_water"),
-        InlineKeyboardButton('Grass',callback_data=f"type_grass")]])
+        InlineKeyboardButton('Fire',callback_data=f"type_fire_{user_id}"),
+        InlineKeyboardButton('Water',callback_data=f"type_water_{user_id}"),
+        InlineKeyboardButton('Grass',callback_data=f"type_grass_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Electric',callback_data=f"type_electric"),
-        InlineKeyboardButton('Psychic',callback_data=f"type_psychic"),
-        InlineKeyboardButton('Ice',callback_data=f"type_ice")]])
+        InlineKeyboardButton('Electric',callback_data=f"type_electric_{user_id}"),
+        InlineKeyboardButton('Psychic',callback_data=f"type_psychic_{user_id}"),
+        InlineKeyboardButton('Ice',callback_data=f"type_ice_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Dragon',callback_data=f"type_dragon"),
-        InlineKeyboardButton('Fairy',callback_data=f"type_fairy"),
-        InlineKeyboardButton('Dark',callback_data=f"type_dark")]])
+        InlineKeyboardButton('Dragon',callback_data=f"type_dragon_{user_id}"),
+        InlineKeyboardButton('Fairy',callback_data=f"type_fairy_{user_id}"),
+        InlineKeyboardButton('Dark',callback_data=f"type_dark_{user_id}")]])
     keyboard += ([[
-        InlineKeyboardButton('Delete',callback_data=f"hexa_delete")]])
+        InlineKeyboardButton('Delete',callback_data=f"hexa_delete_{user_id}")]])
+    return keyboard
     
 @app.on_message(Filters.command(['types', 'types@inhumanDexBot']))
 def types(app, message): 
+    user_id = message.from_user.id
     app.send_message(
         chat_id=message.chat.id,
         text="List of types of Pokemons:",
-        reply_markup=InlineKeyboardMarkup(ptype_buttons.keyboard)
+        reply_markup=InlineKeyboardMarkup(ptype_buttons(user_id))
     )
 
 # ===== Types Callback ====
 @app.on_callback_query(Filters.create(lambda _, query: 'type_' in query.data))
 def button(client: app, callback_query: CallbackQuery):
     q_data = callback_query.data
-    print(q_data)
     query_data = q_data.split('_')[0]
     type_n = q_data.split('_')[1]
-    if query_data == "type":
-        data = jtype[type_n]
-        strong_against = ", ".join(data['strong_against'])
-        weak_against = ", ".join(data['weak_against'])
-        resistant_to = ", ".join(data['resistant_to'])
-        vulnerable_to = ", ".join(data['vulnerable_to'])
-        keyboard = ([[
-        InlineKeyboardButton('Back',callback_data="hexa_back")]])
-        callback_query.message.edit_text(
-            text=(f"Type  :  `{type_n}`\n\n"
-            f"Strong Against:\n`{strong_against}`\n\n"
-            f"Weak Against:\n`{weak_against}`\n\n"
-            f"Resistant To:\n`{resistant_to}`\n\n"
-            f"Vulnerable To:\n`{vulnerable_to}`"),
-            reply_markup=InlineKeyboardMarkup(keyboard)
+    user_id = int(q_data.split('_')[2])
+    cuser_id = callback_query.from_user.id
+    if cuser_id == user_id:
+        if query_data == "type":
+            data = jtype[type_n]
+            strong_against = ", ".join(data['strong_against'])
+            weak_against = ", ".join(data['weak_against'])
+            resistant_to = ", ".join(data['resistant_to'])
+            vulnerable_to = ", ".join(data['vulnerable_to'])
+            keyboard = ([[
+            InlineKeyboardButton('Back',callback_data=f"hexa_back_{user_id}")]])
+            callback_query.message.edit_text(
+                text=(f"Type  :  `{type_n}`\n\n"
+                f"Strong Against:\n`{strong_against}`\n\n"
+                f"Weak Against:\n`{weak_against}`\n\n"
+                f"Resistant To:\n`{resistant_to}`\n\n"
+                f"Vulnerable To:\n`{vulnerable_to}`"),
+                reply_markup=InlineKeyboardMarkup(keyboard)
+            )
+    else:
+        callback_query.answer(
+            text="You can't use this button!",
+            show_alert=True
         )
     
 
 @app.on_callback_query(Filters.create(lambda _, query: 'hexa_' in query.data))
 def button2(client: app, callback_query: CallbackQuery):
-    q_data = callback_query.data 
-    if q_data == "hexa_back":
-        callback_query.message.edit_text(
-            "List of types of Pokemons:",
-            reply_markup=InlineKeyboardMarkup(ptype_buttons.keyboard)
-        )
-    elif q_data == "hexa_delete":
-        callback_query.message.delete()
+    q_data = callback_query.data
+    query_data = q_data.split('_')[1]
+    user_id = int(q_data.split('_')[2])
+    cuser_id = callback_query.from_user.id
+    if user_id == cuser_id:
+        if query_data == "back":
+            callback_query.message.edit_text(
+                "List of types of Pokemons:",
+                reply_markup=InlineKeyboardMarkup(ptype_buttons(user_id))
+            )
+        elif query_data == "delete":
+            callback_query.message.delete()
+        else:
+            return
     else:
-        return
-    
+        callback_query.answer(
+            text="You can't use this button!",
+            show_alert=True
+        )
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
 @app.on_message(Filters.command(['data', 'data@inhumanDexBot']))

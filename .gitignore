@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 src/inhunmanDexBot.session
-src\inhunmanDexBot.session-journal
+src/inhunmanDexBot.session-journal
