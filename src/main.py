@@ -88,7 +88,7 @@ def start(app, message):
 
 # ==== Type Pokemon =====
 @app.on_message(Filters.command(['type', 'type@inhumanDexBot']))
-def type(app, message):
+def ptype(app, message):
     try:
         gtype = message.text.split(' ')[1]
     except IndexError as s:
