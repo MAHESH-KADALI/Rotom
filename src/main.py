@@ -161,9 +161,10 @@ def types(app, message):
     )
 
 # ===== Types Callback ====
-@app.on_callback_query()
+@app.on_callback_query(Filters.create(lambda _, query: 'type_' in query.data))
 def button(client: app, callback_query: CallbackQuery):
     q_data = callback_query.data
+    print(q_data)
     query_data = q_data.split('_')[0]
     type_n = q_data.split('_')[1]
     if query_data == "type":
@@ -182,7 +183,12 @@ def button(client: app, callback_query: CallbackQuery):
             f"Vulnerable To:\n`{vulnerable_to}`"),
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
-    elif q_data == "hexa_back":
+    
+
+@app.on_callback_query(Filters.create(lambda _, query: 'hexa_' in query.data))
+def button2(client: app, callback_query: CallbackQuery):
+    q_data = callback_query.data 
+    if q_data == "hexa_back":
         callback_query.message.edit_text(
             "List of types of Pokemons:",
             reply_markup=InlineKeyboardMarkup(ptype_buttons.keyboard)
