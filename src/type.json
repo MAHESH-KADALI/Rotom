@@ -97,7 +97,7 @@
     },
     "fairy":{
         "strong_against": ["Fighting", "Dragon", "Dark"],
-        "weak_against": ["Poison", "Steel", "Fire"],
+        "weak_against": ["Poison", "Steel"],
         "resistant_to": ["Fighting", "Bug", "Dragon", "Dark"],
         "vulnerable_to": ["Poison", "Steel"]
     },
