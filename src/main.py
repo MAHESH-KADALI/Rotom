@@ -234,7 +234,7 @@ def poketypes(app, message):
     except KeyError:
         app.send_message(
             chat_id=message.chat.id,
-            text="`This pikachu doesn't exist good sir :/`"
+            text="`This pokemon doesn't exist good sir :/`"
         )
         return
     
