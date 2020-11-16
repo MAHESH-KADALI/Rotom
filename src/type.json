@@ -20,7 +20,7 @@
     "poison":{
         "strong_against": ["Grass", "Fairy"],
         "weak_against": ["Poison", "Ground", "Rock", "Ghost", "Steel"],
-        "resistant_to": ["Fighting", "Poison", "Grass", "Fairy"],
+        "resistant_to": ["Fighting", "Poison", "Grass", "Fairy", "Bug"],
         "vulnerable_to": ["Ground", "Psychic"]
     },
     "ground":{
@@ -56,7 +56,7 @@
     "fire":{
         "strong_against": ["Bug", "Steel", "Grass", "Ice"],
         "weak_against": ["Rock", "Fire", "Water", "Dragon"],
-        "resistant_to": ["Bug", "Steel", "Fire", "Grass", "Ice"],
+        "resistant_to": ["Bug", "Steel", "Fire", "Grass", "Ice", "Fairy"],
         "vulnerable_to": ["Ground", "Rock", "Water"]
     },
     "water":{
@@ -97,7 +97,7 @@
     },
     "fairy":{
         "strong_against": ["Fighting", "Dragon", "Dark"],
-        "weak_against": ["Poison", "Steel"],
+        "weak_against": ["Poison", "Steel", "Fire"],
         "resistant_to": ["Fighting", "Bug", "Dragon", "Dark"],
         "vulnerable_to": ["Poison", "Steel"]
     },
