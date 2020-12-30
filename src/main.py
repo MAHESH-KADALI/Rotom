@@ -15,7 +15,7 @@ app = Client(
     api_id=Config.aid,
     api_hash=Config.ahash,
     bot_token=Config.bot_token,
-    session_name='inhunmanDexBot'
+    session_name='rotom-2.0'
 )
 
 texts = json.load(open('src/texts.json', 'r'))
@@ -60,7 +60,7 @@ def get_bot_data(app, message):
     message.continue_propagation()
 
 
-@app.on_message(Filters.command(['stats', 'stats@inhumanDexBot']))
+@app.on_message(Filters.command(['stats', 'stats@MadBoy_Rotomgram2_Bot']))
 def get_stats(app, message):
     if message.from_user.id in Config.sudo:
         members = 0
@@ -78,7 +78,7 @@ def get_stats(app, message):
 
 
 # ===== Home =====
-@app.on_message(Filters.command(['start', 'start@inhumanDexBot']))
+@app.on_message(Filters.command(['start', 'start@MadBoy_Rotomgram2_Bot']))
 def start(app, message):
     app.send_message(
         chat_id=message.chat.id,
@@ -87,14 +87,14 @@ def start(app, message):
     )
 
 # ==== Type Pokemon =====
-@app.on_message(Filters.command(['type', 'type@inhumanDexBot']))
+@app.on_message(Filters.command(['type', 'type@MadBoy_Rotomgram2_Bot']))
 def ptype(app, message):
     try:
         gtype = message.text.split(' ')[1]
     except IndexError as s:
         app.send_message(
             chat_id=message.chat.id,
-            text="`Syntex error: use eg '/type poison'`"
+            text="`Syntex error: use eg '/type fairy'`"
         )
         return
     try:
@@ -102,7 +102,7 @@ def ptype(app, message):
     except KeyError as s:
         app.send_message(
             chat_id=message.chat.id,
-            text=("`This type doesn't exist good sir :/ `\n"
+            text=("`Eeeh, Lol, This type doesn't exists :/ `\n"
                   "`Do  /types  to check for the existing types.`")
         )
         return
@@ -123,7 +123,7 @@ def ptype(app, message):
            
     )
 
-# ==== Typew List =====
+# ==== Types List =====
 def ptype_buttons(user_id):
     keyboard = ([[
         InlineKeyboardButton('Normal',callback_data=f"type_normal_{user_id}"),
@@ -153,7 +153,7 @@ def ptype_buttons(user_id):
         InlineKeyboardButton('Delete',callback_data=f"hexa_delete_{user_id}")]])
     return keyboard
     
-@app.on_message(Filters.command(['types', 'types@inhumanDexBot']))
+@app.on_message(Filters.command(['types', 'types@MadBoy_Rotomgram2_Bot']))
 def types(app, message): 
     user_id = message.from_user.id
     app.send_message(
@@ -217,7 +217,7 @@ def button2(client: app, callback_query: CallbackQuery):
         )
   
 # ===== Pokemon Type Command ======
-@app.on_message(Filters.command(['ptype', 'ptype@inhumanDexBot']))
+@app.on_message(Filters.command(['ptype', 'ptype@MadBoy_Rotomgram2_Bot']))
 def poketypes(app, message): 
     user_id = message.from_user.id
     try:
@@ -226,7 +226,7 @@ def poketypes(app, message):
         app.send_message(
             chat_id=message.chat.id,
             text=("`Syntex error: use eg '/ptype pokemon_name'`\n"
-                  "`eg /ptype Pikachu`")
+                  "`eg /ptype Lunala`")
         )
         return  
     try:
@@ -234,7 +234,7 @@ def poketypes(app, message):
     except KeyError:
         app.send_message(
             chat_id=message.chat.id,
-            text="`This pokemon doesn't exist good sir :/`"
+            text="`Eeeh, Lol, This pokemon doesn't exists :/`"
         )
         return
     
@@ -251,7 +251,7 @@ def poketypes(app, message):
         chat_id=message.chat.id,
         text=(f"Pokemon: `{arg}`\n\n"
               f"Types: `{get_pt}`\n\n"
-              "__Click the button below to get the attact type effectiveness!__"),
+              "__Click the button below to get info about the found type's/types' effectiveness!__"),
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
     
@@ -279,7 +279,7 @@ def poketypes_callback(client: app, callback_query: CallbackQuery):
         )
     else:
         callback_query.answer(
-            text="You're not allow to use this!",
+            text="You're not allowed to use this!",
             show_alert=True
         )
     
@@ -302,22 +302,22 @@ def poketypes_back(client: app, callback_query: CallbackQuery):
         callback_query.message.edit_text(
             (f"Pokemon: `{query_data}`\n\n"
              f"Types: `{get_pt}`\n\n"
-             "__Click the button below to get the attact type effectiveness!__"),
+             "__Click the button below to get info about the found type's/types' effectiveness!__"),
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
     else:
         callback_query.answer(
-            text="You're not allow to use this!",
+            text="You're not allowed to use this!",
             show_alert=True
         )
     
         
 # ===== Data command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'basic_infos' in query.data))
-@app.on_message(Filters.command(['data', 'data@inhumanDexBot']))
+@app.on_message(Filters.command(['data', 'data@MadBoy_Rotomgram2_Bot']))
 def pkmn_search(app, message):
     try:
-        if message.text == '/data' or message.text == '/data@inhumanDexBot':
+        if message.text == '/data' or message.text == '/data@MadBoy_Rotomgram2_Bot':
             app.send_message(message.chat.id, texts['error1'], parse_mode='HTML')
             return None
         pkmn = func.find_name(message.text)
@@ -473,14 +473,14 @@ def locations(app, call):
 
 # ===== Usage command =====
 @app.on_callback_query(Filters.create(lambda _, query: 'usage' in query.data))
-@app.on_message(Filters.command(['usage', 'usage@inhumanDexBot']))
+@app.on_message(Filters.command(['usage', 'usage@MadBoy_Rotomgram2_Bot']))
 def usage(app, message):
     try:
         page = int(re.split('/', message.data)[1])
         dictt = func.get_usage_vgc(int(page), usage_dict['vgc'])
     except AttributeError:
         page = 1
-        text = '<i>Connecting to Pokémon Showdown database...</i>'
+        text = '<i>Yeah! wi8, Connecting to Pokémon Showdown database...</i>'
         message = app.send_message(message.chat.id, text, parse_mode='HTML')
         dictt = func.get_usage_vgc(int(page))
         usage_dict['vgc'] = dictt['vgc_usage']
@@ -501,7 +501,7 @@ def usage(app, message):
 
 
 # ===== FAQ command =====
-@app.on_message(Filters.command(['faq', 'faq@inhumanDexBot']))
+@app.on_message(Filters.command(['faq', 'faq@MadBoy_Rotomgram2_Bot']))
 def faq(app, message):
     text = texts['faq']
     app.send_message(
@@ -514,13 +514,13 @@ def faq(app, message):
 
 
 # ===== About command =====
-@app.on_message(Filters.command(['about', 'about@inhumanDexBot']))
+@app.on_message(Filters.command(['about', 'about@MadBoy_Rotomgram2_Bot']))
 def about(app, message):
     text = texts['about']
     markup = InlineKeyboardMarkup([[
         InlineKeyboardButton(
             text='Github',
-            url='https://github.com/alessiocelentano/rotomgram'
+            url='https://github.com/madboy482/rotom-2.0'
         )
     ]])
 
@@ -530,44 +530,6 @@ def about(app, message):
         reply_markup=markup,
         disable_web_page_preview=True
     )
-
-
-# ===== Raid commands =====
-@app.on_message(Filters.command(['addcode', 'addcode@inhumanDexBot']))
-def call_add_fc(app, message):
-    raid.add_fc(app, message, texts)
-
-@app.on_message(Filters.command(['mycode', 'mycode@inhumanDexBot']))
-def call_show_my_fc(app, message):
-    raid.show_my_fc(app, message, texts)
-
-@app.on_message(Filters.command(['newraid', 'newraid@inhumanDexBot']))
-def call_new_raid(app, message):
-    raid.new_raid(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'stars' in query.data))
-def call_stars(app, message):
-    raid.stars(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'join' in query.data))
-def call_join(app, message):
-    raid.join(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'done' in query.data))
-def call_done(app, message):
-    raid.done(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'yes' in query.data))
-def call_confirm(app, message):
-    raid.confirm(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'no' in query.data))
-def call_back(app, message):
-    raid.back(app, message, texts)
-
-@app.on_callback_query(Filters.create(lambda _, query: 'pin' in query.data))
-def call_pin(app, message):
-    raid.pin(app, message, texts)
 
 
 # ===== Presentation =====
