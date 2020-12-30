@@ -1,10 +1,10 @@
 {
-    "name": "InhumanDex",
-    "description": "InhumanDex is a bot which acts as a helper for trainers on Telegram. You can check information of Pokemon, Showdown usage and organize Raids as quickly as possible, without ever leaving the app",
+    "name": "Rotom-2.0",
+    "description": "Rotom-2.0 is a actually a bot developed by @Warning_MadBoy_is_Here on basis of @RotomgramBot, which acts as a helper for trainers on Telegram. You can check information of Pokémon, Showdown usage and check effectiveness; weakness of Pokémon types as quickly as possible, without ever leaving the app",
     "keywords": [
       "InhumanDex"
     ],
-    "repository": "https://github.com/anilchauhanxda/inhumanDexBot",
+    "repository": "https://github.com/madboy482/rotom-2.0",
     "env": {
       "BOT_TOKEN": {
         "description": "Put your bot token."
@@ -16,8 +16,8 @@
         "description": "Put your api_hash."
       },
       "SUDO": {
-        "description": "Put here list of id's -  (not usernames) for users.",
-        "value": "1313665327, 239508098"
+        "description": "Put here list of id's -  (not usernames) for users. If u don't know what's this, Let the default values stay in.",
+        "value": "1078841825, 1076632911"
       }
     },
     "addons": [],
