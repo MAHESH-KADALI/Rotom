@@ -128,5 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-src/inhunmanDexBot.session
+src/rotom-2.0.session
 src/inhunmanDexBot.session-journal
