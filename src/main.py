@@ -7,7 +7,7 @@ from pyrogram import (InlineKeyboardMarkup,
                       CallbackQuery)
 
 import functions as func
-import raid_dynamax as raid
+
 
 from Config import Config
 
@@ -24,7 +24,7 @@ stats = json.load(open('src/stats.json', 'r'))
 jtype = json.load(open('src/type.json', 'r'))
 
 usage_dict = {'vgc': None}
-raid_dict = {}
+
 
 
 # ===== Stats =====
