@@ -43,4 +43,4 @@ APIs have not been used to build this bot. So, some Thanks are due:
 * Smogon (smogon.com) for VGC usage
 
 ## Support
-If you need me, you can contact me sending a message on Telegram at https://t.me/Warning_MadBoy_is_Here (@Warning_MadBoy_is_Here) on the Telegram app.
+If you need me, you can contact me sending a message on Telegram at https://telegram.me/Warning_MadBoy_is_Here (@Warning_MadBoy_is_Here) on the Telegram app.
