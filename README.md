@@ -1,10 +1,10 @@
-![Logo](assets/logo.png)
+![Rotom-2.0](https://telegra.ph/file/911efe97b05fe077d9fd8.jpg)
 
 ## What is Rotom-2.0?
-Rotom-2.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link https://telegram.me/MadBoy_Rotomgram2_Bot or writing @MadBoy_Rotomgram2_Bot on Telegram search bar.
+Rotom-2.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link <b>[Rotom-2.0](https://telegram.me/MadBoy_Rotomgram2_Bot)<b> or writing @MadBoy_Rotomgram2_Bot on Telegram search bar.
 
 ## Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/rotom-2.0.git)
 
 ## How it works?
 The bot has 6 main commands:
@@ -43,4 +43,4 @@ APIs have not been used to build this bot. So, some Thanks are due:
 * Smogon (smogon.com) for VGC usage
 
 ## Support
-If you need me, you can contact me sending a message on Telegram at https://telegram.me/Warning_MadBoy_is_Here (@Warning_MadBoy_is_Here) on the Telegram app.
+If you need me, you can contact me sending a message on Telegram at <b><i>[MadBoy](https://telegram.me/Warning_MadBoy_is_Here)</i></b>.
