@@ -5,7 +5,7 @@
     "keywords": [
       "Rotom-2.0"
     ],
-    "repository": "https://github.com/madboy482/rotom-2.0",
+    "repository": "https://github.com/anilchauhanxda/inhumanDexBot",
     "env": {
       "BOT_TOKEN": {
         "description": "Put your bot token."
@@ -17,8 +17,8 @@
         "description": "Put your api_hash."
       },
       "SUDO": {
-        "description": "Put here list of id's -  (not usernames) for users. If u don't know what's this, Let the default values stay in.",
-        "value": "1078841825, 1076632911"
+        "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and don't know what is this, then keep the current IDs here at they are and add yours..",
+        "value": "1078841825 1107922726"
       }
     },
     "addons": [],
