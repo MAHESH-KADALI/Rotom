@@ -6,7 +6,6 @@ from pyrogram import Client, Filters
 from pyrogram import (InlineKeyboardMarkup,
                       InlineKeyboardButton,
                       CallbackQuery)
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 
 from pokemon import pokemon_text
