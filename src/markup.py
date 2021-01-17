@@ -1,4 +1,4 @@
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 def data_markup(pkmn, expanded):
