@@ -551,7 +551,8 @@ def bot_added(app, message):
                 text=text
             )
 
-                                 app = Client("Debug")
+                                 
+app = Client("Debug")
 pk = pokepy.V2Client()
 user_dict = {}
 with open("src/pkmn.txt") as f:
