@@ -1,3 +1,4 @@
 Pyrogram==0.17.1
 tgcrypto
 beautifulsoup4==4.9.1
+pokepy==0.6.1
