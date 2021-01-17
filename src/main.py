@@ -1,10 +1,18 @@
 import json
 import re
 
+import pokepy
 from pyrogram import Client, Filters
 from pyrogram import (InlineKeyboardMarkup,
                       InlineKeyboardButton,
                       CallbackQuery)
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
+
+from pokemon import pokemon_text
+from moveset import moveset_text
+from locations import locations_text
+from markup import data_markup, moveset_markup, locations_markup
 
 import functions as func
 
