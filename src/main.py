@@ -605,7 +605,7 @@ def chosen(app, inline_query):
     )
 
 
-@app.on_callback_query(filters.create(lambda _, __, query: "infos" in query.data))
+@app.on_callback_query(Filters.create(lambda _, __, query: "infos" in query.data))
 def expand(app, query):
     expanded = int(re.split("/", query.data)[1])
     pkmn = re.split("/", query.data)[2]
@@ -620,7 +620,7 @@ def expand(app, query):
     )
 
 
-@app.on_callback_query(filters.create(lambda _, __, query: "moveset" in query.data))
+@app.on_callback_query(Filters.create(lambda _, __, query: "moveset" in query.data))
 def moveset(app, query):
     page = int(re.split("/", query.data)[1])
     pkmn = re.split("/", query.data)[2]
@@ -635,7 +635,7 @@ def moveset(app, query):
     )
 
 
-@app.on_callback_query(filters.create(lambda _, __, query: "locations" in query.data))
+@app.on_callback_query(Filters.create(lambda _, __, query: "locations" in query.data))
 def locations(app, query):
     pkmn = re.split("/", query.data)[1]
     text = locations_text(pk, pkmn)
