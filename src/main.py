@@ -5,8 +5,9 @@ import pokepy
 from pyrogram import Client, Filters
 from pyrogram import (InlineKeyboardMarkup,
                       InlineKeyboardButton,
-                      CallbackQuery)
-from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
+                      CallbackQuery,
+                      InlineQueryResultArticle,
+                      InputTextMessageContent)
 
 from pokemon import pokemon_text
 from moveset import moveset_text
@@ -543,7 +544,7 @@ def about(app, message):
 @app.on_message(Filters.create(lambda _, message: message.new_chat_members))
 def bot_added(app, message):
     for new_member in message.new_chat_members:
-        if new_member.id == 1269349088:
+        if new_member.id == 1480152521:
             text = texts['added']
             app.send_message(
                 chat_id=message.chat.id,
