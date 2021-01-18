@@ -4,7 +4,7 @@
     "keywords": [
       "Rotom-2.0"
     ],
-    "repository": "https://github.com/anilchauhanxda/inhumanDexBot",
+    "repository": "https://github.com/madboy482/rotom-2.0",
     "env": {
       "BOT_TOKEN": {
         "description": "Put your bot token."
