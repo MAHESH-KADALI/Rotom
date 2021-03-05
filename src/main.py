@@ -79,9 +79,21 @@ def get_stats(app, message):
 # ===== Home =====
 @app.on_message(Filters.command(['start', 'start@Rotom3_Bot']))
 def start(app, message):
+  
     app.send_message(
         chat_id=message.chat.id,
         text=texts['start_message'],
+        markup = InlineKeyboardMarkup([[
+
+        InlineKeyboardButton(
+
+            text='Add Me To Your Group',
+
+            url='https://github.com/infotechbro/Rotom-3.0'
+
+        )
+
+    ]])
         parse_mode='HTML'
     )
 
