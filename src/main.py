@@ -152,7 +152,7 @@ def ptype_buttons(user_id):
         InlineKeyboardButton('Delete',callback_data=f"hexa_delete_{user_id}")]])
     return keyboard
     
-@app.on_message(Filters.command(['types', 'types@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['types', 'types@Rotom3_Bot']))
 def types(app, message): 
     user_id = message.from_user.id
     app.send_message(
