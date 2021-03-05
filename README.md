@@ -43,4 +43,4 @@ APIs have not been used to build this bot. So, some Thanks are due:
 * Smogon (smogon.com) for VGC usage
 
 ## Support
-ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴍᴇ ʏᴏᴜ ᴄᴀɴ ғɪɴᴅ ᴍᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs <b><i>[ᴀʟᴀɪɴ](https://telegram.me/Alain_Champion)</i></b>.
+ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ ʏᴏᴜ ᴄᴀɴ ғɪɴᴅ ᴍᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs <b><i>[ᴀʟᴀɪɴ](https://telegram.me/Alain_Champion)</i></b>.
