@@ -14,7 +14,7 @@ app = Client(
     api_id=Config.aid,
     api_hash=Config.ahash,
     bot_token=Config.bot_token,
-    session_name='rotom-2.0'
+    session_name='rotom-3.0'
 )
 
 texts = json.load(open('src/texts.json', 'r'))
@@ -59,7 +59,7 @@ def get_bot_data(app, message):
     message.continue_propagation()
 
 
-@app.on_message(Filters.command(['stats', 'stats@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['stats', 'stats@Rotom3_Bot']))
 def get_stats(app, message):
     if message.from_user.id in Config.sudo:
         members = 0
@@ -77,7 +77,7 @@ def get_stats(app, message):
 
 
 # ===== Home =====
-@app.on_message(Filters.command(['start', 'start@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['start', 'start@Rotom3_Bot']))
 def start(app, message):
     app.send_message(
         chat_id=message.chat.id,
@@ -86,7 +86,7 @@ def start(app, message):
     )
 
 # ==== Type Pokemon =====
-@app.on_message(Filters.command(['type', 'type@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['type', 'type@Rotom3_Bot']))
 def ptype(app, message):
     try:
         gtype = message.text.split(' ')[1]
@@ -216,7 +216,7 @@ def button2(client: app, callback_query: CallbackQuery):
         )
   
 # ===== Pokemon Type Command ======
-@app.on_message(Filters.command(['ptype', 'ptype@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['ptype', 'ptype@Rotom3_Bot']))
 def poketypes(app, message): 
     user_id = message.from_user.id
     try:
@@ -316,7 +316,7 @@ def poketypes_back(client: app, callback_query: CallbackQuery):
 @app.on_message(Filters.command(['data', 'data@MadBoy_Rotomgram2_Bot']))
 def pkmn_search(app, message):
     try:
-        if message.text == '/data' or message.text == '/data@MadBoy_Rotomgram2_Bot':
+        if message.text == '/data' or message.text == '/data@Rotom3_Bot':
             app.send_message(message.chat.id, texts['error1'], parse_mode='HTML')
             return None
         pkmn = func.find_name(message.text)
@@ -500,7 +500,7 @@ def usage(app, message):
 
 
 # ===== FAQ command =====
-@app.on_message(Filters.command(['faq', 'faq@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['faq', 'faq@Rotom3_Bot']))
 def faq(app, message):
     text = texts['faq']
     app.send_message(
@@ -513,13 +513,13 @@ def faq(app, message):
 
 
 # ===== About command =====
-@app.on_message(Filters.command(['about', 'about@MadBoy_Rotomgram2_Bot']))
+@app.on_message(Filters.command(['about', 'about@Rotom3_Bot']))
 def about(app, message):
     text = texts['about']
     markup = InlineKeyboardMarkup([[
         InlineKeyboardButton(
             text='Github',
-            url='https://github.com/madboy482/rotom-2.0'
+            url='https://github.com/infotechbro/Rotom-3.0'
         )
     ]])
 
