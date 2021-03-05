@@ -3,10 +3,10 @@
 ## ᴡʜᴀᴛ ɪs ʀᴏᴛᴏᴍ 3.0
 Rotom-3.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link <b><i>[Rotom-3.0](https://telegram.me/Rotom3_bot)</i></b> or writing <b>@Rotom3_Bot</b> on Telegram search bar.
 
-## ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ
+## ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ?
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/rotom-2.0.git)
 
-## How it works?
+## ʜᴏᴡ ɪᴛ ᴡᴏʀᴋs ?
 The bot has 6 main commands:
 
 ### /start 
