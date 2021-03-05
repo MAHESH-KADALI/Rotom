@@ -3,7 +3,7 @@
 ## ᴡʜᴀᴛ ɪs ʀᴏᴛᴏᴍ 3.0
 Rotom-3.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link <b><i>[Rotom-3.0](https://telegram.me/Rotom3_bot)</i></b> or writing <b>@Rotom3_Bot</b> on Telegram search bar.
 
-## Deploy to Heroku
+## ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/rotom-2.0.git)
 
 ## How it works?
@@ -37,10 +37,10 @@ Finally, this command is very easy. It simply returns VGC usage
 ### /ptype
 /ptype command can be used for getting info of a particular Pokémon type's/types' effectiveness, eg '/ptype Lunala'
 
-## Credits
+## ᴄʀᴇᴅɪᴛs
 APIs have not been used to build this bot. So, some Thanks are due:
 * PokémonDB (pokemondb.net) for their data
 * Smogon (smogon.com) for VGC usage
 
-## Support
+## sᴜᴘᴘʀᴏᴛ
 ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ ʏᴏᴜ ᴄᴀɴ ғɪɴᴅ ᴍᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs <b><i>[ᴀʟᴀɪɴ](https://telegram.me/Alain_Champion)</i></b>.
