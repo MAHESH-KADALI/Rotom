@@ -1,7 +1,7 @@
-![Rotom-2.0](https://telegra.ph/file/98b9ebf8e4e142b4764d5.jpg)
+![Rotom-3.0](https://telegra.ph/file/98b9ebf8e4e142b4764d5.jpg)
 
-## What is Rotom-2.0?
-Rotom-2.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link <b><i>[Rotom-2.0](https://telegram.me/MadBoy_Rotomgram2_Bot)</i></b> or writing <b>@MadBoy_Rotomgram2_Bot</b> on Telegram search bar.
+## What is Rotom-3.0?
+Rotom-3.0 is a Telegram Bot that provides all informations about Pokémon. It's accessible through this link <b><i>[Rotom-3.0](https://telegram.me/Rotom3_bot)</i></b> or writing <b>@Rotom3_Bot</b> on Telegram search bar.
 
 ## Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/madboy482/rotom-2.0.git)
